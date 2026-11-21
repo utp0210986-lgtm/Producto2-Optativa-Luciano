@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}{{ restaurant.name }} · Sabores{% endblock %}
+{% block content %}
+<a class="back" href="/">← Volver al listado</a>
+<article class="detail">
+  <div class="media">
+    {% if restaurant.photoUrl %}
+    <img src="{{ restaurant.photoUrl }}" alt="Foto de {{ restaurant.name }}">
+    {% else %}
+    <div class="noimg">Sin foto</div>
+    {% endif %}
+  </div>
+  <div class="data">
+    <h1>{{ restaurant.name }}</h1>
+    <dl>
+      <dt>Categoría</dt><dd>{{ restaurant.category }}</dd>
+      <dt>Ciudad</dt><dd>{{ restaurant.city }}</dd>
+      <dt>Precio</dt><dd>{{ '$' * restaurant.price }}</dd>
+      <dt>Calificación</dt><dd>★ {{ '%.1f'|format(restaurant.avgRating) }} ({{ restaurant.numRatings }} reseñas)</dd>
+    </dl>
+    <div class="actions">
+      <a class="btn alt" href="/restaurants/{{ restaurant.id }}/edit">Editar</a>
+      <button class="danger" id="delete-btn" data-id="{{ restaurant.id }}" data-name="{{ restaurant.name }}">Eliminar</button>
+    </div>
+    <p id="message" role="status"></p>
+  </div>
+</article>
+{% endblock %}

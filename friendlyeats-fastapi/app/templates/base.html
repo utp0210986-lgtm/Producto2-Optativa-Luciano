@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Sabores{% endblock %}</title>
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="/">Sabores<span>.</span></a>
+    <nav>
+      <a href="/">Listado</a>
+      <a href="/docs" target="_blank">API</a>
+    </nav>
+    <a class="btn side-cta" href="/restaurants/new">+ Nuevo</a>
+  </aside>
+  <main class="container">
+    {% block content %}{% endblock %}
+  </main>
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
